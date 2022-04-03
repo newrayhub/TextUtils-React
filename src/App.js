@@ -7,6 +7,14 @@ import React,{useState} from 'react'
 import Alert from './Components/Alert';
 
 
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+
+} from "react-router-dom";
+
 function App() {
 
   const [mode, setMode] = useState('light');// wheather dark mode is enable or not //state variable  
@@ -56,15 +64,23 @@ const showAlert = (message, type)=>{
 
   return (
    <>
+
+   {/* <Router> */}
 <Navbar title="TextUtils" aboutText = "About Us" mode={mode} toggleMode={toggleMode} modeGreen={modeGreen} toggleModeGreen={toggleModeGreen} />
 
 <Alert alert = {alert} />
 {/* <Navbar /> */}
 <div className="container my-3">
-<TextForm showAlert = {showAlert} heading="Enter the text to analyze" mode={mode} />
-{/* <About/> */}
 
+{/* <Routes> */}
+  {/* <Route exact path="/about" element={<About/>} ></Route> */}
+  {/* <Route exact path="/" element={<TextForm showAlert = {showAlert} heading="Enter the text to analyze" mode={mode} />} ></Route> */}
+ 
+
+{/* </Routes> */}
+<TextForm showAlert = {showAlert} heading="Enter the text to analyze" mode={mode} />
 </div>
+{/* </Router> */}
    </>
   );
 }
