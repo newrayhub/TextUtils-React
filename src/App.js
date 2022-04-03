@@ -10,6 +10,7 @@ import Alert from './Components/Alert';
 function App() {
 
   const [mode, setMode] = useState('light');// wheather dark mode is enable or not //state variable  
+  const [modeGreen, setModeGreen] = useState('light');// wheather dark mode is enable or not //state variable  
 
   const [alert, setAlert] = useState(null);
 
@@ -38,10 +39,25 @@ const showAlert = (message, type)=>{
 
     }
   }
+  const toggleModeGreen = ()=>{
+    if(mode==='light'){
+      setModeGreen('green');
+      document.body.style.backgroundColor = 'Green';
+      showAlert("Green Mode Has Been Enabled","success");
+   
+    }
+    else{
+      setModeGreen('light');
+      document.body.style.backgroundColor = 'white';
+      showAlert("Light Mode Has Been Enabled.","success");
+
+    }
+  }
 
   return (
    <>
-<Navbar title="TextUtils" aboutText = "About Us" mode={mode} toggleMode={toggleMode} />
+<Navbar title="TextUtils" aboutText = "About Us" mode={mode} toggleMode={toggleMode} modeGreen={modeGreen} toggleModeGreen={toggleModeGreen} />
+
 <Alert alert = {alert} />
 {/* <Navbar /> */}
 <div className="container my-3">
